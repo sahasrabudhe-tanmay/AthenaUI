@@ -1,0 +1,40 @@
+.login-box {
+    width: 500px;
+    background-color: #222629;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    text-align: center;
+    color: #61892f;
+}
+
+input {
+    background: none;
+    color: white;
+    border: 2px solid #86c232;
+    padding: 10px;
+    margin: 20px;
+    width: 60%;
+    border-radius: 15px;
+}
+
+.login-btn {
+    width: 60%;
+    background-color: #86c232;
+    color: white;
+    font-size: large;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.login-btn:hover {
+    background-color: #61892f;
+    cursor: pointer;
+}
+
+h2 {
+    background-color: inherit;
+}
