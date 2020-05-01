@@ -1,22 +1,35 @@
 import React, { Component } from 'react';
-import './Login.css';
-import '../../App.css';
+import './Register.css';
 const axios = require('axios').default;
 
-export default class Login extends Component {
+export default class Register extends Component {
 
     constructor(props) {
         super(props)
-    
+
         this.state = {
+            name: '',
             username: '',
+            email: '',
             password: ''
         }
+    }
+
+    nameChanged = (event) => {
+        this.setState({
+            name: event.target.value
+        });
     }
 
     usernameChanged = (event) => {
         this.setState({
             username: event.target.value
+        });
+    }
+
+    emailChanged = (event) => {
+        this.setState({
+            email: event.target.value
         });
     }
 
@@ -26,8 +39,8 @@ export default class Login extends Component {
         });
     }
 
-    userLogin = () => {
-        axios.post('http://localhost:5000/user/login', this.state).then(response => {
+    registerUser = () => {
+        axios.post('http://localhost:5000/user/register', this.state).then(response => {
             const responseStatus = response.data.responseStatus;
             if (responseStatus.status === 'FAILURE') {
                 console.log(responseStatus.message);
@@ -42,11 +55,13 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div className="login-box">
-                <h2 className="login-header">Sign In</h2>
+            <div className="register-box">
+                <h2 className="register-header">Register</h2>
+                <input type="text" id="name" className="text-input" placeholder="Name" value={this.state.name} onChange={this.nameChanged} />
                 <input type="text" id="username" className="text-input" placeholder="Username" value={this.state.username} onChange={this.usernameChanged} />
+                <input type="text" id="email" className="text-input" placeholder="Email" value={this.state.email} onChange={this.emailChanged} />
                 <input type="password" id="password" className="text-input" placeholder="Password" value={this.state.password} onChange={this.passwordChanged} />
-                <button className="btn-primary login-btn" onClick={this.userLogin}>Login</button>
+                <button className="btn-primary login-btn" onClick={this.registerUser}>Register</button>
             </div>
         )
     }

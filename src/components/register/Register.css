@@ -1,4 +1,4 @@
-.login-box {
+.register-box {
     width: 500px;
     background-color: #222629;
     position: absolute;
@@ -20,7 +20,7 @@ input {
     border-radius: 15px;
 }
 
-.login-btn {
+.register-btn {
     width: 60%;
 }
 
