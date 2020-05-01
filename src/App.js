@@ -26,7 +26,7 @@ export default class App extends Component {
     return (
       <Router>
             <Route path="/login" render={() => <Login setUser={this.setUser} />} />
-            <Route path="/register" component={Register} />
+            <Route path="/register" render={() => <Register setUser={this.setUser} />} />
       </Router>
     );
   }

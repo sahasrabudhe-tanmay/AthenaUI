@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
+import '../../App.css';
 const axios = require('axios').default;
 
 export default class Login extends Component {
@@ -45,7 +46,7 @@ export default class Login extends Component {
                 <h2 className="login-header">Sign In</h2>
                 <input type="text" id="username" className="text-input" placeholder="Username" value={this.state.username} onChange={this.usernameChanged} />
                 <input type="password" id="password" className="text-input" placeholder="Password" value={this.state.password} onChange={this.passwordChanged} />
-                <button className="login-btn" onClick={this.userLogin}>Login</button>
+                <button className="btn-primary login-btn" onClick={this.userLogin}>Login</button>
             </div>
         )
     }

@@ -1,3 +1,17 @@
 * {
   background-color: #474b4f;
 }
+
+.btn-primary {
+  background-color: #86c232;
+  color: white;
+  font-size: large;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.btn-primary:hover {
+  background-color: #61892f;
+  cursor: pointer;
+}
