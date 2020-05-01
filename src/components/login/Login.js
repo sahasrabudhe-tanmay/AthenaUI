@@ -32,6 +32,7 @@ export default class Login extends Component {
                 console.log(responseStatus.message);
             } else {
                 console.log(response.data.user);
+                this.props.setUser(response.data.user);
             }
         }).catch(error => {
             console.log(error);
