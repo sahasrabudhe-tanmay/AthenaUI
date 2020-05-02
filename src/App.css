@@ -15,3 +15,8 @@
   background-color: #61892f;
   cursor: pointer;
 }
+
+.white {
+  color: white;
+  padding: 100px;
+}
