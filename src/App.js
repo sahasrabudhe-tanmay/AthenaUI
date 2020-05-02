@@ -3,6 +3,7 @@ import './App.css';
 import Login from './components/login/Login';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Register from './components/register/Register';
+import Navbar from './components/navbar/Navbar';
 
 export default class App extends Component {
 
@@ -25,8 +26,9 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-            <Route path="/login" render={() => <Login setUser={this.setUser} />} />
-            <Route path="/register" render={() => <Register setUser={this.setUser} />} />
+        <Navbar />
+        <Route path="/login" render={() => <Login setUser={this.setUser} />} />
+        <Route path="/register" render={() => <Register setUser={this.setUser} />} />
       </Router>
     );
   }
