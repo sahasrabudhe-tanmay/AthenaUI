@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Register.css';
-const axios = require('axios').default;
+const registerUser = require('../../http/restService').registerUser;
 
 export default class Register extends Component {
 
@@ -40,16 +40,15 @@ export default class Register extends Component {
     }
 
     registerUser = () => {
-        axios.post('http://localhost:5000/user/register', this.state).then(response => {
+        registerUser(this.state, response => {
             const responseStatus = response.data.responseStatus;
             if (responseStatus.status === 'FAILURE') {
                 console.log(responseStatus.message);
             } else {
                 console.log(response.data.user);
                 this.props.setUser(response.data.user);
+                localStorage.setItem('token', response.data.token);
             }
-        }).catch(error => {
-            console.log(error);
         });
     }
 

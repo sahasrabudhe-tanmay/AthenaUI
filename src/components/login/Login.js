@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './Login.css';
 import '../../App.css';
-const axios = require('axios').default;
+const loginUser = require('../../http/restService').loginUser;
 
 export default class Login extends Component {
 
     constructor(props) {
         super(props)
-    
+
         this.state = {
             username: '',
             password: ''
@@ -27,17 +27,20 @@ export default class Login extends Component {
     }
 
     userLogin = () => {
-        axios.post('http://localhost:5000/user/login', this.state).then(response => {
+        loginUser(this.state, response => {
+            console.log('In component - ', response);
             const responseStatus = response.data.responseStatus;
             if (responseStatus.status === 'FAILURE') {
                 console.log(responseStatus.message);
             } else {
                 console.log(response.data.user);
                 this.props.setUser(response.data.user);
+                localStorage.setItem('token', response.data.token);
+                const cbLocation = this.props.location.state.cbLocation;
+                this.props.history.replace(cbLocation);
             }
-        }).catch(error => {
-            console.log(error);
         });
+
     }
 
     render() {
