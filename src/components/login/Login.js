@@ -36,6 +36,8 @@ export default class Login extends Component {
                 console.log(response.data.user);
                 this.props.setUser(response.data.user);
                 localStorage.setItem('token', response.data.token);
+                const cbLocation = this.props.location.state.cbLocation;
+                this.props.history.replace(cbLocation);
             }
         });
 
